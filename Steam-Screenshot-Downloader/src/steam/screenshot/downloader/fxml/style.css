@@ -1,0 +1,28 @@
+.steam_button
+{
+	-fx-font-family: "Arial";
+	-fx-font-size: 10px;
+	-fx-text-fill: #D1CFCD;
+	-fx-alignment: CENTER-LEFT;
+	
+	-fx-border-color: #706D69;
+	
+	-fx-background-color: linear-gradient(#5C5956, #4A4846);
+	-fx-background-radius: 2;
+	-fx-border-radius: 2;
+}
+
+.steam_button:hover
+{
+	-fx-border-color: #99938d;
+	-fx-background-color: linear-gradient(#696663, #4b4947);
+}
+
+.steam_textfield
+{
+	-fx-border-color: #99938d;
+	-fx-background-radius: 3;
+	-fx-border-radius: 3;
+	
+	-fx-background-color: #393736;	
+}

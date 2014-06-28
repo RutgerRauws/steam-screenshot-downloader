@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package steam.screenshot.downloader;
+package steam.screenshot.downloader.fxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -20,12 +20,12 @@ import javafx.scene.control.Label;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Label label;
+    private Button btn_start;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private void handleStartAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        btn_start.setText("Hello World!");
     }
     
     @Override
