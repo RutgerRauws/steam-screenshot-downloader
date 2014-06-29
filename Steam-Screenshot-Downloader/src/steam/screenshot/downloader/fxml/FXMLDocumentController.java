@@ -17,20 +17,21 @@ import javafx.scene.control.Button;
  *
  * @author Rutger Rauws
  */
-public class FXMLDocumentController implements Initializable {
-    
+public class FXMLDocumentController implements Initializable
+{
     @FXML
     private Button btn_start;
     
     @FXML
-    private void handleStartAction(ActionEvent event) {
+    private void handleStartAction(ActionEvent event)
+    {
         System.out.println("You clicked me!");
         btn_start.setText("Hello World!");
     }
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         // TODO
-    }    
-    
+    }
 }
