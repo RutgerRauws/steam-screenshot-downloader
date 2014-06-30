@@ -16,7 +16,7 @@ public class Scraper
         Document document = Jsoup.connect("http://steamcommunity.com/id/" + steamID + "/screenshots/?p=1&sort=newestfirst&browsefilter=myfiles&view=grid&privacy=14#scrollTop=0").get();
         Elements images = document.select(".imgWallItem img");
         
-        for(int fileNumber = 1; fileNumber <= images.size(); fileNumber++)        
+        for(int fileNumber = 0; fileNumber < images.size(); fileNumber++)        
         {
             String URI = images.eq(fileNumber).attr("src").replaceFirst("\\d+x\\d+\\.resizedimage", "");
             Data.writeImageFromUrl(URI, path, fileNumber);

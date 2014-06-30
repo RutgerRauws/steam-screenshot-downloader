@@ -64,7 +64,7 @@
                         <Insets left="10.0" right="10.0" top="84.0" />
                      </StackPane.margin>
                   </TextField>
-                  <Button fx:id="btn_start" onAction="#handleStartAction" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" styleClass="steam_button" text="START" StackPane.alignment="TOP_RIGHT">
+                  <Button fx:id="btn_start" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" styleClass="steam_button" text="START" StackPane.alignment="TOP_RIGHT">
                      <StackPane.margin>
                         <Insets right="10.0" top="118.0" />
                      </StackPane.margin>
