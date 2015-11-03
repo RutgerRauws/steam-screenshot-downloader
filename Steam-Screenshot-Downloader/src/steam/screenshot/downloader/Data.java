@@ -23,7 +23,7 @@ class DataRunnable implements Runnable
         {
             URL url = new URL(URI);
             BufferedImage image = ImageIO.read(url);
-            File outputFile = new File(path + "\\" +fileNumber + ".jpg");
+            File outputFile = new File(path + "\\" + fileNumber + ".jpg");
             
             ImageIO.write(image, "jpg", outputFile);
         }
