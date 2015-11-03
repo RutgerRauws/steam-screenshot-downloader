@@ -1,8 +1,44 @@
+#root
+{
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: #262626;
+    
+    -fx-font-family: "Arial";   
+}
+
+.label
+{
+    -fx-text-fill: #CFCFCF;
+}
+
+#titleBar
+{
+    -fx-background-color: linear-gradient(#1c2732, #262626);
+}
+
+#titleBar > .label
+{
+    -fx-text-fill: #E2E2E2;
+}
+
+#btn_close
+{
+    -fx-font-size: 12px;
+    -fx-text-fill: #AFADAD;
+    
+    -fx-background-color: transparent;
+}
+
+#btn_close:hover
+{
+    -fx-text-fill: #F1F1F1;
+}
+
 .steam_button
 {
-	-fx-font-family: "Arial";
 	-fx-font-size: 10px;
-	-fx-text-fill: #D1CFCD;
 	-fx-alignment: CENTER-LEFT;
 	
 	-fx-border-color: #706D69;

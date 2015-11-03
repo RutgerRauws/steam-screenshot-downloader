@@ -6,37 +6,27 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane maxHeight="240.0" maxWidth="400.0" minHeight="240.0" minWidth="400.0" prefHeight="240.0" prefWidth="400.0" style="-fx-border-width: 1; -fx-border-style: solid; -fx-border-color: black; -fx-background-color: #383635;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steam.screenshot.downloader.fxml.FXMLDocumentController">
+<AnchorPane fx:id="root" maxHeight="240.0" maxWidth="400.0" minHeight="240.0" minWidth="400.0" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steam.screenshot.downloader.fxml.FXMLDocumentController">
    <children>
       <BorderPane prefHeight="29.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <BorderPane fx:id="titleBar" prefHeight="29.0" style="-fx-background-color: linear-gradient(#595553, #383635);" BorderPane.alignment="CENTER">
+            <BorderPane fx:id="titleBar" prefHeight="29.0" BorderPane.alignment="CENTER">
                <left>
-                  <Label maxHeight="23.0" minHeight="23.0" prefHeight="23.0" text="Steam screenshot downloader" textFill="#eaeaea" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
+                  <Label maxHeight="23.0" minHeight="23.0" prefHeight="23.0" text="Steam Screenshot Downloader" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="10.0" />
                      </BorderPane.margin>
                   </Label>
                </left>
                <right>
-                  <Button fx:id="btn_close" mnemonicParsing="false" style="-fx-background-color: transparent;" text="✕" textFill="#eaeaea" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Button>
+                  <Button fx:id="btn_close" mnemonicParsing="false" text="✕" BorderPane.alignment="CENTER" />
                </right>
             </BorderPane>
          </top>
          <center>
             <StackPane alignment="TOP_LEFT" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Specify the location to store your screenshots:" textFill="#d1cfcd">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
+                  <Label text="Specify the location to store your screenshots:">
                      <StackPane.margin>
                         <Insets left="10.0" top="10.0" />
                      </StackPane.margin>
@@ -51,10 +41,7 @@
                         <Insets right="10.0" top="30.0" />
                      </StackPane.margin>
                   </Button>
-                  <Label text="Enter your Steam ID:    (http://steamcommunity.com/id/SteamID)" textFill="#d1cfcd">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
+                  <Label text="Enter your Steam ID:    (http://steamcommunity.com/id/SteamID)">
                      <StackPane.margin>
                         <Insets left="10.0" top="65.0" />
                      </StackPane.margin>
@@ -75,10 +62,7 @@
          <bottom>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" text="Steam is a registered trademark of Valve Corporation.&#10;This software is by no means associated with Valve Corporation." textAlignment="CENTER" textFill="#eaeaea" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
+                  <Label alignment="CENTER" text="Steam is a registered trademark of Valve Corporation.&#10;This software is by no means associated with Valve Corporation." textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <padding>
                         <Insets bottom="2.0" />
                      </padding>
