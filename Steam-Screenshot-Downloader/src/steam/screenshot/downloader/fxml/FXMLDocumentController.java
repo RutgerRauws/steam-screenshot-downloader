@@ -6,9 +6,7 @@
 
 package steam.screenshot.downloader.fxml;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -19,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import steam.screenshot.downloader.Data;
 import steam.screenshot.downloader.Scraper;
 
 /**
@@ -40,27 +37,17 @@ public class FXMLDocumentController implements Initializable
         
     @Override
     public void initialize(URL url, ResourceBundle rb)
-    {        
+    {
         btn_start.setOnMouseClicked(new EventHandler<MouseEvent>()
         {
             @Override
             public void handle(MouseEvent me)
             {
-                try
-                {
-                    ArrayList<Integer> fileIDs = Scraper.getFileIDs(txt_steamid.getText());
-                    ArrayList<URL> URLs = Scraper.getImages(fileIDs);
-                    
-                    Data.writeImagesFromURL(URLs, txt_path.getText());
-                }
-                catch (IOException e)
-                {
-                    System.out.println(e.getMessage());
-                }
+                Scraper sc = new Scraper(txt_steamid.getText(), txt_path.getText());
+                Thread thread = new Thread(sc);
+                thread.start();
             }
         });
-        
-        
         
         
         /**

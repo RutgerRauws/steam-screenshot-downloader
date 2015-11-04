@@ -1,8 +1,6 @@
 package steam.screenshot.downloader;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -16,9 +14,34 @@ import org.jsoup.select.Elements;
  *
  * @author Rutger Rauws
  */
-public class Scraper
+
+public class Scraper implements Runnable
 {
-    public static ArrayList<Integer> getFileIDs(String steamID) throws IOException
+    private String steamID, path;
+    
+    public Scraper(String steamID, String path)
+    {
+        this.steamID = steamID;
+        this.path = path;
+    }
+    
+    @Override
+    public void run()
+    {
+        //TODO: Use an Exception Listener for this
+        try
+        {
+            ArrayList<Integer> fileIDs = getFileIDs();            
+            ArrayList<URL> URLs = getImages(fileIDs);
+            Data.writeImagesFromURL(URLs, path);
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(Scraper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private ArrayList<Integer> getFileIDs() throws IOException
     {
         ArrayList<Integer> fileIDs = new ArrayList<Integer>();
         
@@ -41,7 +64,7 @@ public class Scraper
         return fileIDs;
     }
     
-    public static ArrayList<URL> getImages(ArrayList<Integer> fileIDs) throws IOException
+    public ArrayList<URL> getImages(ArrayList<Integer> fileIDs) throws IOException
     {
         ArrayList<URL> URLs = new ArrayList<URL>();
         
