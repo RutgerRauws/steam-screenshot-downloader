@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 /**
@@ -12,7 +13,7 @@ import javax.imageio.ImageIO;
  */
 class DataRunnable implements Runnable
 {    
-    private final String URI;
+    private final URL url;
     private final String path;
     private final int fileNumber;
     
@@ -21,7 +22,6 @@ class DataRunnable implements Runnable
     {
         try // I wish I could just throw the exception back to Scraper.java
         {
-            URL url = new URL(URI);
             BufferedImage image = ImageIO.read(url);
             File outputFile = new File(path + "\\" + fileNumber + ".jpg");
             
@@ -33,9 +33,9 @@ class DataRunnable implements Runnable
         }
     }
     
-    public DataRunnable(String URI, String path, int fileNumber)
+    public DataRunnable(URL url, String path, int fileNumber)
     {
-        this.URI = URI;
+        this.url = url;
         this.path = path;
         this.fileNumber = fileNumber;
     }
@@ -43,9 +43,15 @@ class DataRunnable implements Runnable
 
 public class Data
 {
-    public static void writeImageFromUrl(String URI, String path, int fileNumber)
+    public static void writeImageFromURL(URL url, String path, int fileNumber)
     {
-        DataRunnable runnable = new DataRunnable(URI, path, fileNumber);
+        DataRunnable runnable = new DataRunnable(url, path, fileNumber);
         new Thread(runnable).start();
+    }
+    
+    public static void writeImagesFromURL(ArrayList<URL> URLs, String path)
+    {
+        for(int i = 0; i < URLs.size(); i++)
+            writeImageFromURL(URLs.get(i), path, i);
     }
 }

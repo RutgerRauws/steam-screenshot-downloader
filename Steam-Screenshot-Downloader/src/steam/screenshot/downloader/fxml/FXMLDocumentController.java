@@ -8,6 +8,7 @@ package steam.screenshot.downloader.fxml;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -18,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import steam.screenshot.downloader.Data;
 import steam.screenshot.downloader.Scraper;
 
 /**
@@ -32,8 +34,8 @@ public class FXMLDocumentController implements Initializable
     @FXML private Button btn_start;
     @FXML private Button btn_close;
     
-    @FXML private TextField txtfield_path;
-    @FXML private TextField txtfield_steamid;
+    @FXML private TextField txt_path;
+    @FXML private TextField txt_steamid;
     @FXML private BorderPane titleBar;
         
     @Override
@@ -46,7 +48,10 @@ public class FXMLDocumentController implements Initializable
             {
                 try
                 {
-                    Scraper.downloadScreenshots(txtfield_steamid.getText(), txtfield_path.getText());
+                    ArrayList<Integer> fileIDs = Scraper.getFileIDs(txt_steamid.getText());
+                    ArrayList<URL> URLs = Scraper.getImages(fileIDs);
+                    
+                    Data.writeImagesFromURL(URLs, txt_path.getText());
                 }
                 catch (IOException e)
                 {
