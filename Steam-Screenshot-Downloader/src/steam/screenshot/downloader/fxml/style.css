@@ -40,19 +40,32 @@
 .steam_button
 {
 	-fx-font-size: 10px;
+        -fx-text-fill: #CFCFCF;
 	-fx-alignment: CENTER-LEFT;
-	
-	-fx-border-color: #706D69;
-	
-	-fx-background-color: linear-gradient(#5C5956, #4A4846);
-	-fx-background-radius: 2;
-	-fx-border-radius: 2;
+		
+	-fx-background-color: linear-gradient(#505050, #3A3A3A);
+        
+	-fx-background-radius: 0;
+	-fx-border-radius: 0;
+        
+        -fx-pref-height: 23;
+}
+
+.steam_button:focused
+{
+	-fx-background-color: linear-gradient(#696969, #3B3B3B);
 }
 
 .steam_button:hover
 {
-	-fx-border-color: #99938d;
-	-fx-background-color: linear-gradient(#696663, #4B4947);
+	-fx-background-color: linear-gradient(#626262, #4B4947);
+}
+
+.steam_button:disabled
+{
+    -fx-text-fill: #737373;
+    -fx-background-color: #2C2C2C;
+    -fx-opacity: 1.0;
 }
 
 .steam_textfield
