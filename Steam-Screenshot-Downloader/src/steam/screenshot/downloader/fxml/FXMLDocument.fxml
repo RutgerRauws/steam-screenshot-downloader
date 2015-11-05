@@ -19,7 +19,7 @@
                   </Label>
                </left>
                <right>
-                  <Button fx:id="btn_close" mnemonicParsing="false" text="✕" BorderPane.alignment="CENTER" />
+                  <Button fx:id="btn_close" mnemonicParsing="false" text="✕" BorderPane.alignment="CENTER" cancelButton="true"/>
                </right>
             </BorderPane>
          </top>
@@ -36,7 +36,7 @@
                         <Insets left="10.0" right="40.0" top="30.0" />
                      </StackPane.margin>
                   </TextField>
-                  <Button maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" prefHeight="24.0" styleClass="steam_button" text="..." StackPane.alignment="TOP_RIGHT">
+                  <Button minHeight="22.0" prefHeight="22.0" maxHeight="22.0" mnemonicParsing="false" styleClass="steam_button" text="..." StackPane.alignment="TOP_RIGHT">
                      <StackPane.margin>
                         <Insets right="10.0" top="30.0" />
                      </StackPane.margin>
@@ -51,7 +51,7 @@
                         <Insets left="10.0" right="10.0" top="84.0" />
                      </StackPane.margin>
                   </TextField>
-                  <Button fx:id="btn_start" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" styleClass="steam_button" text="START" StackPane.alignment="TOP_RIGHT">
+                  <Button fx:id="btn_start" mnemonicParsing="false" prefWidth="80.0" styleClass="steam_button" text="START" StackPane.alignment="TOP_RIGHT" defaultButton="true">
                      <StackPane.margin>
                         <Insets right="10.0" top="118.0" />
                      </StackPane.margin>

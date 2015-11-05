@@ -9,6 +9,7 @@ package steam.screenshot.downloader.fxml;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,11 +41,13 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        btn_start.setOnMouseClicked(new EventHandler<MouseEvent>()
+        btn_start.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
-            public void handle(MouseEvent me)
+            public void handle(ActionEvent ae)
             {
+                btn_start.setDisable(true);
+                
                 Scraper sc = new Scraper(txt_steamid.getText(), txt_path.getText());
                 parserThread = new Thread(sc);
                 parserThread.start();
@@ -81,10 +84,10 @@ public class FXMLDocumentController implements Initializable
             }
         });
         
-        btn_close.setOnMouseClicked(new EventHandler<MouseEvent>()
+        btn_close.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
-            public void handle(MouseEvent me)
+            public void handle(ActionEvent ae)
             {
                 if(parserThread != null) //If the thread has been initialized
                     parserThread.interrupt(); //We want to interrupt it
