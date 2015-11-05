@@ -25,6 +25,11 @@ public class Data
     public static void writeImagesFromURL(ArrayList<URL> URLs, String path) throws IOException
     {
         for(int i = 0; i < URLs.size(); i++)
+        {
             writeImageFromURL(URLs.get(i), path, i);
+            
+            if(Thread.interrupted())
+                return;
+        }
     }
 }

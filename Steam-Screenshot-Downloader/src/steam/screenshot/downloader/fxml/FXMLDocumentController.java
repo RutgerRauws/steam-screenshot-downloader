@@ -34,7 +34,9 @@ public class FXMLDocumentController implements Initializable
     @FXML private TextField txt_path;
     @FXML private TextField txt_steamid;
     @FXML private BorderPane titleBar;
-        
+    
+    private Thread parserThread;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -44,13 +46,13 @@ public class FXMLDocumentController implements Initializable
             public void handle(MouseEvent me)
             {
                 Scraper sc = new Scraper(txt_steamid.getText(), txt_path.getText());
-                Thread thread = new Thread(sc);
-                thread.start();
+                parserThread = new Thread(sc);
+                parserThread.start();
             }
         });
         
         
-        /**
+        /*
          * 
          * Window manager
          * 
@@ -84,7 +86,10 @@ public class FXMLDocumentController implements Initializable
             @Override
             public void handle(MouseEvent me)
             {
-                Platform.exit();
+                if(parserThread != null) //If the thread has been initialized
+                    parserThread.interrupt(); //We want to interrupt it
+                
+                Platform.exit(); //Exit the application
             }
         });
     }
