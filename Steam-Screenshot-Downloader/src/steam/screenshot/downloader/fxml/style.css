@@ -10,12 +10,13 @@
 
 .label
 {
+    -fx-font-size: 11px;
     -fx-text-fill: #CFCFCF;
 }
 
 #titleBar
 {
-    -fx-background-color: linear-gradient(#1c2732, #262626);
+    -fx-background-color: linear-gradient(#1C2732, #262626);
 }
 
 #titleBar > .label
@@ -51,14 +52,23 @@
 .steam_button:hover
 {
 	-fx-border-color: #99938d;
-	-fx-background-color: linear-gradient(#696663, #4b4947);
+	-fx-background-color: linear-gradient(#696663, #4B4947);
 }
 
 .steam_textfield
 {
-	-fx-border-color: #99938d;
-	-fx-background-radius: 3;
-	-fx-border-radius: 3;
-	
-	-fx-background-color: #393736;	
+	-fx-border-color: #595959;
+	-fx-background-color: #2D2D2D;
+        
+        -fx-text-fill: #CFCFCF;
+        -fx-font-size: 11px;
+        
+        -fx-min-height: 22;
+        -fx-pref-height: 22;
+}
+
+.steam_textfield:focused
+{
+	-fx-border-color: #898989;
+	-fx-background-color: #313131;
 }
