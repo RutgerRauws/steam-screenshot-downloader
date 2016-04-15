@@ -62,11 +62,7 @@
          <bottom>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" text="Steam is a registered trademark of Valve Corporation.&#10;This software is by no means associated with Valve Corporation." textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <padding>
-                        <Insets bottom="2.0" />
-                     </padding>
-                  </Label>
+                  <Label alignment="CENTER" text="Steam is a registered trademark of Valve Corporation.&#10;This software is by no means associated with Valve Corporation." textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </bottom>
