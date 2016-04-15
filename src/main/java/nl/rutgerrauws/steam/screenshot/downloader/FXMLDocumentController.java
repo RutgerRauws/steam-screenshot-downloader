@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package steam.screenshot.downloader.fxml;
+package nl.rutgerrauws.steam.screenshot.downloader;
 
 import java.io.File;
 import java.net.URL;
@@ -20,7 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import steam.screenshot.downloader.Scraper;
+import nl.rutgerrauws.steam.screenshot.downloader.Scraper;
 
 /**
  *

@@ -1,4 +1,4 @@
-package steam.screenshot.downloader;
+package nl.rutgerrauws.steam.screenshot.downloader;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

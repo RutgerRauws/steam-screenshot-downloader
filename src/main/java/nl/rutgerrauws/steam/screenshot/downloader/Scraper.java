@@ -1,4 +1,4 @@
-package steam.screenshot.downloader;
+package nl.rutgerrauws.steam.screenshot.downloader;
 
 import java.io.IOException;
 import java.net.URL;

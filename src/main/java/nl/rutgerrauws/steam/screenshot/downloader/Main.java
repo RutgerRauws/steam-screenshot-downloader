@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package steam.screenshot.downloader;
+package nl.rutgerrauws.steam.screenshot.downloader;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,10 +22,10 @@ public class Main extends Application
     @Override
     public void start(Stage stage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("fxml/style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
         
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
