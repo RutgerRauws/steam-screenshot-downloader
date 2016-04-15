@@ -17,7 +17,7 @@ public class Data
     public static void writeImageFromURL(URL url, String path, int fileNumber) throws IOException
     {
         BufferedImage image = ImageIO.read(url);
-        File outputFile = new File(path + "\\" + fileNumber + ".jpg");
+        File outputFile = new File(path + "/" + fileNumber + ".jpg");
             
         ImageIO.write(image, "jpg", outputFile);
     }
