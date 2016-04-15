@@ -58,8 +58,12 @@ public class FXMLDocumentController implements Initializable
         public void handle(ActionEvent ae)
         {
             startButton.setDisable(true);
+            statusLabel.setVisible(true);
 
             Scraper sc = new Scraper(txt_steamid.getText(), txt_path.getText());
+            
+            statusLabel.textProperty().bind(sc.messageProperty());
+            
             parserThread = new Thread(sc);
             parserThread.start();
         }
