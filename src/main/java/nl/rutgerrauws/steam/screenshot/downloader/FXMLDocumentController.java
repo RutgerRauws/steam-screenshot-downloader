@@ -40,74 +40,85 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        startButton.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent ae)
-            {
-                startButton.setDisable(true);
-                
-                Scraper sc = new Scraper(txt_steamid.getText(), txt_path.getText());
-                parserThread = new Thread(sc);
-                parserThread.start();
-            }
-        });
-        
-        browseButton.setOnMousePressed(new EventHandler<MouseEvent>()
-        {
-            @Override
-            public void handle(MouseEvent t)
-            {
-                DirectoryChooser dc = new DirectoryChooser();
-                File path = dc.showDialog(browseButton.getScene().getWindow());
-                
-                if(path != null) //A selection has been made by the user
-                {
-                    txt_path.setText(path.getPath());
-                }
-            }
-        });
-        
+        startButton.setOnAction(startHandler);
+        browseButton.setOnMousePressed(browseHandler);
         
         /*
-         * 
          * Window manager
-         * 
          */
-        titleBar.setOnMousePressed(new EventHandler<MouseEvent>()
-        {
-            @Override
-            public void handle(MouseEvent me)
-            {
-                Stage stage = (Stage)titleBar.getScene().getWindow();
-                
-                xWindowOffset = stage.getX() - me.getScreenX();
-                yWindowOffset = stage.getY() - me.getScreenY();
-            }
-        });
-        
-        titleBar.setOnMouseDragged(new EventHandler<MouseEvent>()
-        {
-            @Override
-            public void handle(MouseEvent me)
-            {
-                Stage stage = (Stage)titleBar.getScene().getWindow();
-                
-                stage.setX(me.getScreenX() + xWindowOffset);
-                stage.setY(me.getScreenY() + yWindowOffset);
-            }
-        });
-        
-        closeButton.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent ae)
-            {
-                if(parserThread != null) //If the thread has been initialized
-                    parserThread.interrupt(); //We want to interrupt it
-                
-                Platform.exit(); //Exit the application
-            }
-        });
+        titleBar.setOnMousePressed(titleBarClickedHandler);
+        titleBar.setOnMouseDragged(titleBarDraggedHandler);
+        closeButton.setOnAction(closeButtonHandler);
     }
+    
+    
+    EventHandler<ActionEvent> startHandler = new EventHandler<ActionEvent>()
+    {
+        @Override
+        public void handle(ActionEvent ae)
+        {
+            startButton.setDisable(true);
+
+            Scraper sc = new Scraper(txt_steamid.getText(), txt_path.getText());
+            parserThread = new Thread(sc);
+            parserThread.start();
+        }
+    };
+    
+    EventHandler<MouseEvent> browseHandler = new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent t)
+        {
+            DirectoryChooser dc = new DirectoryChooser();
+            File path = dc.showDialog(browseButton.getScene().getWindow());
+
+            if(path != null) //A selection has been made by the user
+            {
+                txt_path.setText(path.getPath());
+            }
+        }
+    };
+    
+    
+    /*
+     * 
+     * Window manager
+     * 
+     */
+    EventHandler<MouseEvent> titleBarClickedHandler = new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent me)
+        {
+            Stage stage = (Stage)titleBar.getScene().getWindow();
+
+            xWindowOffset = stage.getX() - me.getScreenX();
+            yWindowOffset = stage.getY() - me.getScreenY();
+        }
+    };
+    
+    EventHandler<MouseEvent> titleBarDraggedHandler = new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent me)
+        {
+            Stage stage = (Stage)titleBar.getScene().getWindow();
+
+            stage.setX(me.getScreenX() + xWindowOffset);
+            stage.setY(me.getScreenY() + yWindowOffset);
+        }
+    };
+    
+    EventHandler<ActionEvent> closeButtonHandler = new EventHandler<ActionEvent>()
+    {
+        @Override
+        public void handle(ActionEvent ae)
+        {
+            if(parserThread != null) //If the thread has been initialized
+                parserThread.interrupt(); //We want to interrupt it
+
+            Platform.exit(); //Exit the application
+        }
+    };
 }
